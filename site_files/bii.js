@@ -189,7 +189,8 @@ var snowFall = (function () {
     },
   };
 })();
-var SNOW_Picture = biicore.webroot + "/common/imgs/heart.png";
+// var SNOW_Picture = biicore.webroot + "/common/imgs/heart.png";
+var SNOW_Picture = "./site_files/heart.png";
 var special_custom = ["646f6e3d778825e6f306667f", "64a04f6beb89a210fc07656a"];
 window.onload = (event) => {
   if (biicore.effect.type == "none") return false;
@@ -427,87 +428,78 @@ if (biicore.bgMusic) {
 	`);
 }
 
-if (!biicore.isPremium && !biicore.templatePremium) {
-  setTimeout(function () {
-    document.getElementsByClassName("bii-logo")[0].classList.add("show-sec");
-  }, 8000);
-  setTimeout(function () {
-    document.getElementsByClassName("bii-logo")[0].classList.remove("show-sec");
-  }, 11000);
-  setTimeout(function () {
-    document.getElementsByClassName("bii-logo")[0].classList.add("show-sec");
-  }, 25000);
-  setTimeout(function () {
-    document.getElementsByClassName("bii-logo")[0].classList.remove("show-sec");
-  }, 28000);
-  var biiLogo = biicore.webroot + "/common/imgs/bii.png?v=20210131";
-  var currentYear = new Date().getFullYear();
-  document.write(`
-	<style type="text/css">
-	@-webkit-keyframes biilogo-pulse {
-	  from {
-	    -webkit-transform: scale3d(1, 1, 1);
-	    transform: scale3d(1, 1, 1);
-	  }
-	  50% {
-	    -webkit-transform: scale3d(0.95, 0.95, 0.95);
-	    transform: scale3d(0.95, 0.95, 0.95);
-	  }
-	  to {
-	    -webkit-transform: scale3d(1, 1, 1);
-	    transform: scale3d(1, 1, 1);
-	  }
-	}
-	
-	@keyframes biilogo-pulse {
-	  from {
-	    -webkit-transform: scale3d(1, 1, 1);
-	    transform: scale3d(1, 1, 1);
-	  }
-	  50% {
-	    -webkit-transform: scale3d(0.95, 0.95, 0.95);
-	    transform: scale3d(0.95, 0.95, 0.95);
-	  }
-	  to {
-	    -webkit-transform: scale3d(1, 1, 1);
-	    transform: scale3d(1, 1, 1);
-	  }
-	}
-	.bii-logo{position: fixed;bottom: 70px;right: 50px;width: 40px;height: 40px;z-index:99998;}
-	.bii-logo a{display: block;}
-	.bii-logo:before{content: "";position: absolute;-webkit-border-radius: 50%;-moz-border-radius: 50%;-o-border-radius: 50%;-ms-border-radius: 50%;border-radius: 50%;z-index: -1;background-color: rgba(242, 59, 67, 0.3);width: 120%;height: 120%;left: -10%;top: -10%;-webkit-animation: biilogo-pulse 1s infinite;animation: biilogo-pulse 1s infinite;z-index: 1;}
-	.bii-logo img{width: 100%;z-index: 99999;position: absolute;cursor:pointer;}
-	.bii-logo:hover .bii-logo-secondary{visibility: visible;}
-	.bii-logo:hover .bii-logo-secondary-content{ transform: translate3d(0, 0, 0);}
-	.bii-logo.show-sec .bii-logo-secondary{visibility: visible;}
-	.bii-logo.show-sec .bii-logo-secondary-content{ transform: translate3d(0, 0, 0);}
-	
-	.bii-logo-secondary{position: absolute;width: 320px;right: 25px;height: 40px;overflow: hidden;visibility: hidden;}
-	.bii-logo-secondary-content{display: flex;align-items: center;position: absolute;width: 320px;right: -25px;background: #fff;height: 40px;padding: 8px 40px 8px 11px;border: 1px solid #df4759;border-radius: 30px;z-index: 9999;font-size:14px;transform: translate3d(100%, 0, 0);transition: transform 175ms ease;font-family: arial;font-weight: 200;color: #000;}
-	.bii-footer .show-desktop{display: inline-block;}
-	.bii-footer .show-mobile{display: none;}
-	@media (max-width: 799px) {
-	  .bii-logo{bottom: 30px;right: 20px;}
-	  .bii-footer .show-desktop{display: none;}
-	  .bii-footer .show-mobile{display: inline-block;}
-	}
-	</style>
-	<div class="bii-logo"><div class="bii-logo-secondary"><div class="bii-logo-secondary-content">Nền tảng tạo Website đám cưới miễn phí!</div></div><a href="${biicore.coreSite}/iwedding" target="_blank"><img src="${biiLogo}" /></a></div>
-	<div class="bii-footer" style="z-index:9999;background-color: #000;border-top: 1px solid #df4759;color: #fff;text-align: center;letter-spacing: 1px;bottom: 0;width: 100%;font-size: 15px;">
-		<div class="container">
-			<a style="color: #fff;padding: 10px 0 13px;display: flex;align-items: center;justify-content: center;" href="https://biihappy.com/iwedding" target="_blank">
-				<span style="margin-right: 5px;"><img width="30" src="${biiLogo}" style="border: 1px solid #fff;border-radius: 50%;width:30px!important;margin-right:5px;" /> IWedding</span> | <span class="show-desktop" style="margin-left: 5px;">Nền tảng tạo website đám cưới miễn phí từ Biihappy</span><span class="show-mobile">Tạo website đám cưới miễn phí</span>
-				<span style="line-height: 15px;vertical-align: middle;">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-					  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-					</svg>
-				</span>
-			</a>
-		</div>
-	</div>
-	`);
-}
+// if (!biicore.isPremium && !biicore.templatePremium) {
+//   setTimeout(function () {
+//     document.getElementsByClassName("bii-logo")[0].classList.add("show-sec");
+//   }, 8000);
+//   setTimeout(function () {
+//     document.getElementsByClassName("bii-logo")[0].classList.remove("show-sec");
+//   }, 11000);
+//   setTimeout(function () {
+//     document.getElementsByClassName("bii-logo")[0].classList.add("show-sec");
+//   }, 25000);
+//   setTimeout(function () {
+//     document.getElementsByClassName("bii-logo")[0].classList.remove("show-sec");
+//   }, 28000);
+//   // var biiLogo = /;
+//   var currentYear = new Date().getFullYear();
+//   document.write(`
+// 	<style type="text/css">
+// 	@-webkit-keyframes biilogo-pulse {
+// 	  from {
+// 	    -webkit-transform: scale3d(1, 1, 1);
+// 	    transform: scale3d(1, 1, 1);
+// 	  }
+// 	  50% {
+// 	    -webkit-transform: scale3d(0.95, 0.95, 0.95);
+// 	    transform: scale3d(0.95, 0.95, 0.95);
+// 	  }
+// 	  to {
+// 	    -webkit-transform: scale3d(1, 1, 1);
+// 	    transform: scale3d(1, 1, 1);
+// 	  }
+// 	}
 
+// 	@keyframes biilogo-pulse {
+// 	  from {
+// 	    -webkit-transform: scale3d(1, 1, 1);
+// 	    transform: scale3d(1, 1, 1);
+// 	  }
+// 	  50% {
+// 	    -webkit-transform: scale3d(0.95, 0.95, 0.95);
+// 	    transform: scale3d(0.95, 0.95, 0.95);
+// 	  }
+// 	  to {
+// 	    -webkit-transform: scale3d(1, 1, 1);
+// 	    transform: scale3d(1, 1, 1);
+// 	  }
+// 	}
+// 	.bii-logo{position: fixed;bottom: 70px;right: 50px;width: 40px;height: 40px;z-index:99998;}
+// 	.bii-logo a{display: block;}
+// 	.bii-logo:before{content: "";position: absolute;-webkit-border-radius: 50%;-moz-border-radius: 50%;-o-border-radius: 50%;-ms-border-radius: 50%;border-radius: 50%;z-index: -1;background-color: rgba(242, 59, 67, 0.3);width: 120%;height: 120%;left: -10%;top: -10%;-webkit-animation: biilogo-pulse 1s infinite;animation: biilogo-pulse 1s infinite;z-index: 1;}
+// 	.bii-logo img{width: 100%;z-index: 99999;position: absolute;cursor:pointer;}
+// 	.bii-logo:hover .bii-logo-secondary{visibility: visible;}
+// 	.bii-logo:hover .bii-logo-secondary-content{ transform: translate3d(0, 0, 0);}
+// 	.bii-logo.show-sec .bii-logo-secondary{visibility: visible;}
+// 	.bii-logo.show-sec .bii-logo-secondary-content{ transform: translate3d(0, 0, 0);}
+
+// 	.bii-logo-secondary{position: absolute;width: 320px;right: 25px;height: 40px;overflow: hidden;visibility: hidden;}
+// 	.bii-logo-secondary-content{display: flex;align-items: center;position: absolute;width: 320px;right: -25px;background: #fff;height: 40px;padding: 8px 40px 8px 11px;border: 1px solid #df4759;border-radius: 30px;z-index: 9999;font-size:14px;transform: translate3d(100%, 0, 0);transition: transform 175ms ease;font-family: arial;font-weight: 200;color: #000;}
+// 	.bii-footer .show-desktop{display: inline-block;}
+// 	.bii-footer .show-mobile{display: none;}
+// 	@media (max-width: 799px) {
+// 	  .bii-logo{bottom: 30px;right: 20px;}
+// 	  .bii-footer .show-desktop{display: none;}
+// 	  .bii-footer .show-mobile{display: inline-block;}
+// 	}
+// 	</style>
+
+// 	`);
+// }
+
+{
+  /* <div class="bii-logo"><div class="bii-logo-secondary"><div class="bii-logo-secondary-content">Nền tảng tạo Website đám cưới miễn phí!</div></div><a href="#gallery"><img src="${biiLogo}" /></a></div> */
+}
 var showButtonWishSuggestions = document.querySelector(".show-autocomplete");
 var hideButtonWishSuggestions = document.querySelector(".hide-autocomplete");
 var showContentWishSuggestions = document.querySelectorAll(".showContent");
