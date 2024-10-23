@@ -189,14 +189,21 @@ var snowFall = (function () {
     },
   };
 })();
-// var SNOW_Picture = biicore.webroot + "/common/imgs/heart.png";
+
 var SNOW_Picture = "./site_files/heart.png";
+var FLOWER_Picture = "./site_files/flower.png"; // Hình ảnh bông hoa
 var special_custom = ["646f6e3d778825e6f306667f", "64a04f6beb89a210fc07656a"];
+
 window.onload = (event) => {
   if (biicore.effect.type == "none") return false;
+  
   setTimeout(function () {
+    let flakeCount, flakeType;
+
     if (biicore.effect.type == "heart") {
-      let flakeCount = 30;
+      flakeCount = 20;
+      flakeType = SNOW_Picture; // Sử dụng hình ảnh trái tim
+
       if (
         typeof biicore.template_id !== "undefined" &&
         special_custom.includes(biicore.template_id)
@@ -206,14 +213,27 @@ window.onload = (event) => {
           flakeCount = 3;
         }
       }
+
+      // Rơi trái tim
       snowFall.snow(document.getElementsByTagName("body")[0], {
-        image: SNOW_Picture,
+        image: flakeType,
         minSize: 15,
         maxSize: 32,
         flakeCount: flakeCount,
         maxSpeed: 3,
         minSpeed: 1,
       });
+
+      // Rơi bông hoa
+      snowFall.snow(document.getElementsByTagName("body")[0], {
+        image: FLOWER_Picture,
+        minSize: 15,
+        maxSize: 32,
+        flakeCount: flakeCount, // Số lượng bông hoa có thể khác, tùy ý chỉnh
+        maxSpeed: 3,
+        minSpeed: 1,
+      });
+
     } else if (biicore.effect.type == "snow") {
       let flakeCount = 250;
       if (
@@ -267,6 +287,85 @@ window.onload = (event) => {
     });
   });
 };
+
+// // var SNOW_Picture = biicore.webroot + "/common/imgs/heart.png";
+// var SNOW_Picture = "./site_files/heart.png";
+// var special_custom = ["646f6e3d778825e6f306667f", "64a04f6beb89a210fc07656a"];
+// window.onload = (event) => {
+//   if (biicore.effect.type == "none") return false;
+//   setTimeout(function () {
+//     if (biicore.effect.type == "heart") {
+//       let flakeCount = 30;
+//       if (
+//         typeof biicore.template_id !== "undefined" &&
+//         special_custom.includes(biicore.template_id)
+//       ) {
+//         flakeCount = 5;
+//         if (window.innerWidth <= 650) {
+//           flakeCount = 3;
+//         }
+//       }
+//       snowFall.snow(document.getElementsByTagName("body")[0], {
+//         image: SNOW_Picture,
+//         minSize: 15,
+//         maxSize: 32,
+//         flakeCount: flakeCount,
+//         maxSpeed: 3,
+//         minSpeed: 1,
+//       });
+//     } else if (biicore.effect.type == "snow") {
+//       let flakeCount = 250;
+//       if (
+//         typeof biicore.template_id !== "undefined" &&
+//         special_custom.includes(biicore.template_id)
+//       ) {
+//         flakeCount = 50;
+//         if (window.innerWidth <= 1200) {
+//           flakeCount = 30;
+//         }
+//         if (window.innerWidth <= 650) {
+//           flakeCount = 25;
+//         }
+//       }
+//       snowFall.snow(document.getElementsByTagName("body")[0], {
+//         round: true,
+//         shadow: true,
+//         flakeCount: flakeCount,
+//         minSize: 1,
+//         maxSize: 8,
+//       });
+//     } else if (biicore.effect.type == "custom") {
+//       let effectSetting = biicore.effect.setting;
+//       let minSpeed = parseInt(effectSetting.speed) - 3;
+//       if (minSpeed <= 0) minSpeed = 1;
+//       snowFall.snow(document.getElementsByTagName("body")[0], {
+//         image: effectSetting.icon,
+//         minSize: effectSetting.minSize,
+//         maxSize: effectSetting.maxSize,
+//         flakeCount: effectSetting.number,
+//         maxSpeed: effectSetting.speed,
+//         minSpeed: minSpeed,
+//       });
+//     }
+//   }, 300);
+
+//   if (
+//     document.getElementsByTagName("body")[0].clientHeight > window.innerHeight
+//   ) {
+//     setTimeout(() => {
+//       document.querySelector(".mouse-scroll-on-mobile").style.visibility =
+//         "visible";
+//     }, 800);
+//   }
+
+//   showContentWishSuggestions.forEach(function (content) {
+//     content.addEventListener("click", function (event) {
+//       event.preventDefault();
+//       let text = this.textContent || this.innerText;
+//       document.getElementById("content").value = text;
+//     });
+//   });
+// };
 
 window.addEventListener("scroll", (event) => {
   if (window.scrollY > 50) {
